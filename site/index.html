@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0a0b">
+<title>OpenAI / OpenLLM — the flagship that teaches humanity to use AI</title>
+<meta name="description" content="OpenAI / OpenLLM is Dawn Studio's flagship: it teaches people to use AI — concepts first, across scientific papers, product apps, philosophy and skill cards. Free, open source, a perpetually updated living canon.">
+<link rel="canonical" href="https://openai.dawnstudio.app/">
+<meta property="og:title" content="OpenAI / OpenLLM — the flagship that teaches humanity to use AI">
+<meta property="og:description" content="Most AI-era helplessness is structural — invisible without the concepts. OpenAI / OpenLLM teaches the concepts first. Free, open source, a living canon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://openai.dawnstudio.app/">
+<meta property="og:site_name" content="OpenAI / OpenLLM">
+<meta property="og:image" content="https://openai.dawnstudio.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OpenAI / OpenLLM — Dawn sun rising over an open canon">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenAI / OpenLLM — the flagship that teaches humanity to use AI">
+<meta name="twitter:description" content="Concepts first: papers, product apps, philosophy, skill cards and a field guide to structural problems. Free, open source, a living canon.">
+<meta name="twitter:image" content="https://openai.dawnstudio.app/og.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+:root{
+  --bg:#0a0a0b; --panel:#131315; --panel2:#17171a; --line:#26262b;
+  --text:#f5f2ee; --muted:#a8a29b; --accent:#e8590c; --accent-soft:#ff8a3d;
+  --good:#69b56b; --radius:16px;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Noto Sans CJK TC",sans-serif;
+  --serif:Georgia,"Times New Roman","Noto Serif TC","Noto Serif CJK TC",serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.55}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px;min-width:0}
+a{color:var(--accent-soft)}
+header.utility{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line)}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-weight:700;letter-spacing:.02em;min-width:0}
+.brand img{width:40px;height:40px;flex:0 0 auto}
+.brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brand .hall{color:var(--muted);font-weight:500;font-size:.85rem}
+.lang-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--panel);flex:0 0 auto}
+.lang-switch button{min-width:48px;min-height:34px;padding:5px 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;font:600 .88rem var(--sans)}
+.lang-switch button[aria-pressed="true"]{background:var(--text);color:var(--bg)}
+.hero{padding:38px 0 8px}
+.hero .mark{width:84px;height:84px}
+.hero h1{font-size:clamp(2.2rem,9vw,3.4rem);line-height:1.05;margin:.35em 0 .25em;font-weight:800;letter-spacing:-.01em;overflow-wrap:break-word}
+.hero .promise{font-family:var(--serif);font-size:clamp(1.15rem,4.6vw,1.45rem);line-height:1.5;color:#e8e2d9;max-width:34em}
+.hero .measure{margin-top:14px;color:var(--muted);font-size:1rem;max-width:36em}
+.hero .measure strong{color:var(--accent-soft);font-weight:700}
+.statusbar{margin:26px 0 6px;background:var(--panel);border:1px solid #3d2c1c;border-radius:var(--radius);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.statusbar .dot{flex:0 0 auto;width:12px;height:12px;border-radius:50%;background:var(--accent-soft);margin-top:6px}
+.statusbar p{margin:0;font-size:.98rem}
+.statusbar .k{color:var(--accent-soft);font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;font-weight:700;display:block;margin-bottom:4px}
+section.block{padding:20px 0 4px}
+section.block>h2{font-size:clamp(1.5rem,6vw,2rem);margin:14px 0 6px}
+section.block>p{color:#e8e2d9;max-width:36em;margin:0 0 12px}
+section.block>p.sub{color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin:0 0 14px;min-width:0}
+.card h3{font-size:1.2rem;margin:.1em 0 .35em;line-height:1.3;overflow-wrap:break-word}
+.card p{color:var(--muted);margin:0}
+.card .kicker{color:var(--accent-soft);font-size:.75rem;text-transform:uppercase;letter-spacing:.13em;font-weight:700}
+.goal{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.goal .card{margin:0}
+@media (max-width:640px){ .dual{grid-template-columns:1fr} }
+.goal .card strong{color:var(--text)}
+footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:26px 34px;border-top:1px solid var(--line);color:var(--muted);font-size:.875rem;margin-top:26px}
+footer p{margin:0}
+footer .links{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.footer-legal{color:var(--muted);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.back-top{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line);border-radius:999px;color:var(--text);flex:0 0 auto}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:640px){ header.utility{min-height:56px} footer{align-items:flex-start;flex-direction:column} }
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+  <header class="utility">
+    <a class="brand" href="#top" aria-label="OpenAI / OpenLLM home">
+      <img src="/icon-192.png" alt="OpenAI / OpenLLM logo" width="40" height="40">
+      <span>OpenAI / OpenLLM</span> <span class="hall" data-i18n="hall">· Dawn Studio flagship</span>
+    </a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="zh" aria-pressed="false">繁中</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <img class="mark" src="/icon-192.png" alt="OpenAI / OpenLLM mark — Dawn sun rising over an open canon">
+    <h1>OpenAI / OpenLLM</h1>
+    <p class="promise" data-i18n="promise">The flagship that teaches humanity to use AI.</p>
+    <p class="measure" data-i18n="measure">In 2026, using AI is a <strong>must-learn for every adult</strong> — and for the generation born after AI became the norm, it is survival itself. This app teaches it properly: <strong>concepts first</strong>.</p>
+  </div>
+
+  <div class="statusbar" role="status">
+    <span class="dot" aria-hidden="true"></span>
+    <p><span class="k" data-i18n="statusK">Status</span><span data-i18n="status">Flagship — in founding, curriculum canon in build. This page is the live founding record: the end goal, the roadmap, and honest progress, updated as the canon grows.</span></p>
+  </div>
+
+  <section class="block">
+    <h2 data-i18n="whatTitle">What it is</h2>
+    <p data-i18n="what1">Most helplessness in the AI era is not a lack of intelligence. It is structural: problems that stay invisible to the person inside them, because they do not yet have the concept that would make the problem visible. No concept — no sight — no way to learn. So OpenAI / OpenLLM does not start with tricks. It starts by naming the concepts.</p>
+    <p data-i18n="what2">Two names, one product. OpenAI faces the public: learning to use AI. OpenLLM goes one layer deeper: learning how large language models themselves work. Every Dawn app uses AI — this one teaches the using. All swords return to one.</p>
+    <p class="sub" data-i18n="what3">And the name is a reclamation: “open” should mean open. Free, open source, an open canon, updated forever.</p>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="goalTitle">End goal</h2>
+    <p data-i18n="goal">A world where no one is locked out of the AI era for lack of a concept — where every adult can direct AI, understand how it works, and spot the structural problems it hides, taught by a canon that never stops updating.</p>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="roadTitle">Roadmap — the curriculum</h2>
+    <p class="sub" data-i18n="roadSub">Five dimensions, one canon. Every lesson is built the same way: a world source (papers, experiments, official research), a Dawn specimen (lived proof it was run and tested here), and the concept named.</p>
+    <div class="card"><span class="kicker" data-i18n="r1k">Dimension 1</span><h3 data-i18n="r1t">Scientific papers, in human words</h3><p data-i18n="r1">The transformer, attention, scaling laws — the research that built AI, translated into language anyone can hold.</p></div>
+    <div class="card"><span class="kicker" data-i18n="r2k">Dimension 2</span><h3 data-i18n="r2t">Product apps, taken apart</h3><p data-i18n="r2">ChatGPT, Claude, Gemini and the rest — how the products people actually use work, and how to work them well.</p></div>
+    <div class="card"><span class="kicker" data-i18n="r3k">Dimension 3</span><h3 data-i18n="r3t">Philosophy — literacy for the AI age</h3><p data-i18n="r3">Language games, philosophy of mind, words that make worlds: the concepts underneath the tools.</p></div>
+    <div class="card"><span class="kicker" data-i18n="r4k">Dimension 4</span><h3 data-i18n="r4t">Skill cards</h3><p data-i18n="r4">Prompting, workflows, verification — and how not to be fooled by AI. Practical cards you can use the same day.</p></div>
+    <div class="card"><span class="kicker" data-i18n="r5k">Dimension 5 · Required</span><h3 data-i18n="r5t">The field guide to structural problems</h3><p data-i18n="r5">The invisible structures end users cannot see — named, one by one. Each entry: one concept, one picture, one exercise in recognising it. Entry № 1 is the hook — the concept its founder only learned by living it.</p></div>
+  </section>
+
+  <section class="block">
+    <h2 data-i18n="canonTitle">A living canon</h2>
+    <p data-i18n="canon">This is not a course frozen at launch. The canon is fed one-way from the Dawn database and updated perpetually — new findings from the frontier go straight into the curriculum. What is true today stays; what changes, changes here too.</p>
+    <div class="dual">
+      <div class="card"><h3 data-i18n="srcAt">Source A — the world</h3><p data-i18n="srcA">Papers, experiments and official documentation from across the web. Every claim carries its source and an evidence label — the curriculum's width and verifiability come from here.</p></div>
+      <div class="card"><h3 data-i18n="srcBt">Source B — lived proof</h3><p data-i18n="srcB">Dawn's own record: the walls its founder hit, run through and verified in real work. Not the whole curriculum — its specimens and its evidence.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footStudio">Dawn Studio · Independent software.</p>
+    <div class="links">
+      <a class="footer-legal" href="https://dawnstudio.app/examples">Examples</a>
+      <a class="footer-legal" href="https://dawnstudio.app/changelog">Changelog</a>
+      <a class="footer-legal" href="https://dawnstudio.app/blog">Blog</a>
+      <a class="footer-legal" href="https://dawnstudio.app/canon">Canon</a>
+      <a class="footer-legal" href="https://dawnstudio.app/privacy.html">Privacy</a>
+      <a class="back-top" href="#top" aria-label="Back to top"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7 8 2.5 12.5 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Back to top</span></a>
+    </div>
+  </footer>
+</div>
+<script>
+"use strict";
+var I18N = {
+  en: { hall:"· Dawn Studio flagship",
+    promise:"The flagship that teaches humanity to use AI.",
+    measure:"In 2026, using AI is a <strong>must-learn for every adult</strong> — and for the generation born after AI became the norm, it is survival itself. This app teaches it properly: <strong>concepts first</strong>.",
+    statusK:"Status",
+    status:"Flagship — in founding, curriculum canon in build. This page is the live founding record: the end goal, the roadmap, and honest progress, updated as the canon grows.",
+    whatTitle:"What it is",
+    what1:"Most helplessness in the AI era is not a lack of intelligence. It is structural: problems that stay invisible to the person inside them, because they do not yet have the concept that would make the problem visible. No concept — no sight — no way to learn. So OpenAI / OpenLLM does not start with tricks. It starts by naming the concepts.",
+    what2:"Two names, one product. OpenAI faces the public: learning to use AI. OpenLLM goes one layer deeper: learning how large language models themselves work. Every Dawn app uses AI — this one teaches the using. All swords return to one.",
+    what3:"And the name is a reclamation: “open” should mean open. Free, open source, an open canon, updated forever.",
+    goalTitle:"End goal",
+    goal:"A world where no one is locked out of the AI era for lack of a concept — where every adult can direct AI, understand how it works, and spot the structural problems it hides, taught by a canon that never stops updating.",
+    roadTitle:"Roadmap — the curriculum",
+    roadSub:"Five dimensions, one canon. Every lesson is built the same way: a world source (papers, experiments, official research), a Dawn specimen (lived proof it was run and tested here), and the concept named.",
+    r1k:"Dimension 1", r1t:"Scientific papers, in human words", r1:"The transformer, attention, scaling laws — the research that built AI, translated into language anyone can hold.",
+    r2k:"Dimension 2", r2t:"Product apps, taken apart", r2:"ChatGPT, Claude, Gemini and the rest — how the products people actually use work, and how to work them well.",
+    r3k:"Dimension 3", r3t:"Philosophy — literacy for the AI age", r3:"Language games, philosophy of mind, words that make worlds: the concepts underneath the tools.",
+    r4k:"Dimension 4", r4t:"Skill cards", r4:"Prompting, workflows, verification — and how not to be fooled by AI. Practical cards you can use the same day.",
+    r5k:"Dimension 5 · Required", r5t:"The field guide to structural problems", r5:"The invisible structures end users cannot see — named, one by one. Each entry: one concept, one picture, one exercise in recognising it. Entry № 1 is the hook — the concept its founder only learned by living it.",
+    canonTitle:"A living canon",
+    canon:"This is not a course frozen at launch. The canon is fed one-way from the Dawn database and updated perpetually — new findings from the frontier go straight into the curriculum. What is true today stays; what changes, changes here too.",
+    srcAt:"Source A — the world", srcA:"Papers, experiments and official documentation from across the web. Every claim carries its source and an evidence label — the curriculum's width and verifiability come from here.",
+    srcBt:"Source B — lived proof", srcB:"Dawn's own record: the walls its founder hit, run through and verified in real work. Not the whole curriculum — its specimens and its evidence.",
+    footStudio:"Dawn Studio · Independent software."
+  },
+  zh: { hall:"· Dawn Studio 旗艦",
+    promise:"教全人類點用 AI 嘅旗艦。",
+    measure:"2026 年，使用 AI 已經係<strong>每個成年人必學</strong>嘅嘢 —— 對 AI 成為常態之後出世嗰一代，更加係生存本身。呢個 app 認真教：<strong>概念行先</strong>。",
+    statusK:"狀態",
+    status:"旗艦創建中，課程 canon 建構中。呢頁係 live 嘅創建記錄：終極目標、路線圖、同誠實進度，隨 canon 成長持續更新。",
+    whatTitle:"呢個係咩",
+    what1:"AI 時代嘅無力感，大部分唔係智力問題，係結構問題 —— 嗰啲問題對當事人係隱形嘅，因為佢哋未有嗰個令問題變得可見嘅概念。冇概念，就睇唔到，就學唔到。所以 OpenAI / OpenLLM 唔由技巧入手，係由點名概念入手。",
+    what2:"兩個名，一個產品。OpenAI 對公眾：學用 AI。OpenLLM 深一層：學 LLM 本身點運作。所有 Dawn app 都用 AI —— 呢個 app 教「用」本身。萬劍歸一。",
+    what3:"個名本身係宣言：「open」應該真係 open。免費、open source、canon 公開、永續更新。",
+    goalTitle:"終極目標",
+    goal:"一個冇人會因為欠缺概念而被鎖喺 AI 時代門外嘅世界 —— 每個成年人都識指揮 AI、明白佢點運作、認得出佢收埋嘅結構問題，由一部永不停更新嘅 canon 教出嚟。",
+    roadTitle:"路線圖 — 課程",
+    roadSub:"五個維度，一部 canon。每一課同一個體例：世界 source（論文、實驗、官方研究）+ Dawn 標本（喺呢度行通過、驗過嘅活證）+ 概念點名。",
+    r1k:"維度一", r1t:"科學論文，人話版", r1:"Transformer、attention、scaling laws —— 砌出 AI 嗰啲研究，譯成人人都攞得住嘅語言。",
+    r2k:"維度二", r2t:"產品 app，拆開嚟睇", r2:"ChatGPT、Claude、Gemini 等等 —— 人人日日用嗰啲產品點運作，同點樣用得好。",
+    r3k:"維度三", r3t:"哲學 — AI 時代嘅識字課", r3:"語言遊戲、心智哲學、言出法隨：工具底下嗰層概念。",
+    r4k:"維度四", r4t:"實技卡", r4:"Prompt、workflow、驗證 —— 同點樣唔好俾 AI 呃。即日用得嘅實用卡。",
+    r5k:"維度五 · 必須", r5t:"結構問題圖鑑", r5:"End user 睇唔到嗰啲隱形結構，一個個點名。每一條目：一個概念、一幅圖、一個「認到佢」嘅練習。第一號標本係 hook —— 創辦人親身撞過先學識嗰個概念。",
+    canonTitle:"活 canon",
+    canon:"呢個唔係出街嗰刻就定格嘅課程。Canon 由 Dawn DB 單向餵養、永續更新 —— frontier 嘅新發現直接入課程。今日真嘅，留低；有變嘅，呢度同步變。",
+    srcAt:"源 A — 世界", srcA:"全網論文、實驗同官方文件。每樣 claim 附 source 同證據標籤 —— 課程嘅闊度同可驗證性嚟自呢度。",
+    srcBt:"源 B — 親身活證", srcB:"Dawn 自己嘅記錄：創辦人撞過嗰啲牆，喺真工作入面行通過、驗過。唔係課程嘅全部，係課程嘅標本同證據。",
+    footStudio:"Dawn Studio · 獨立軟件。"
+  }
+};
+var lang = "en";
+try { lang = localStorage.getItem("openai-openllm-lang") || "en"; } catch(e){}
+if (lang !== "zh") lang = "en";
+function apply(){
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  var btns = document.querySelectorAll(".lang-switch button");
+  for (var j=0;j<btns.length;j++) btns[j].setAttribute("aria-pressed", btns[j].getAttribute("data-lang") === lang ? "true" : "false");
+  var els = document.querySelectorAll("[data-i18n]");
+  for (var i=0;i<els.length;i++){ var k = els[i].getAttribute("data-i18n"); if (I18N[lang][k]) els[i].innerHTML = I18N[lang][k]; }
+}
+var btns = document.querySelectorAll(".lang-switch button");
+for (var b=0;b<btns.length;b++) btns[b].addEventListener("click", function(){
+  lang = this.getAttribute("data-lang");
+  try { localStorage.setItem("openai-openllm-lang", lang); } catch(e){}
+  apply();
+});
+apply();
+</script>
+</body>
+</html>
